@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cionaodh44 - Portfolio</title>
+    <!-- Updated Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <!-- Custom Cursor Elements -->
+    <div id="custom-cursor"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <header class="main-header" id="header">
+        <a href="index.html" class="nav-link-home">Home</a>
+        <nav class="main-nav" id="mainNav">
+            <ul class="nav-links">
+                <li><a href="about.html" class="nav-link">About me</a></li>
+                <li><a href="work.html" class="nav-link">Portfolio</a></li>
+                <li><a href="TOS.html" class="nav-link">TOS</a></li>
+                <li><a href="https://vgen.co/ciona" target="_blank" class="nav-link">VGen</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Open navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- Sticky Table of Contents Navigation -->
+        <nav class="toc-sticky-nav">
+            <div class="toc-container">
+                <a href="#model-section">3D Model</a>
+                <a href="#chibi-section">3D Chibi Model</a>
+                <a href="#live2d-section">Live2D Model</a>
+                <a href="#design-section">Character Design</a>
+                <a href="#illustration-section">2D Illustration</a>
+                <a href="#animation-section">2D - 3D Animation</a>
+            </div>
+        </nav>
+
+        <!-- START: 3D Model Section -->
+        <section id="model-section" class="portfolio-section">
+            <div class="title-container">
+                <p class="subtitle">// Anime - Rendered style</p>
+                <h1 class="main-title-bg">3D MODEL</h1>
+                <div class="main-title-wrapper">
+                    <h2 class="main-title">[ 3D Model ]</h2>
+                </div>
+            </div>
+            <div class="portfolio-grid">
+                <div class="video-container">
+                    <video id="portfolio-video" src="3dmain1.mp4" controls autoplay muted loop></video>
+                </div>
+                <div class="details-container">
+                    <div class="model-includes">
+                        <h4>Includes</h4>
+                        <ul>
+                            <li>One full 3D model in .fbx, .vrm, .warudo File</li>
+                            <li>50+ expressions, including ARKit</li>
+                            <li>3 free custom expressions</li>
+                            <li>Webcam or ARKit/iPhone compatible facial tracking</li>
+                            <li>Fully rigged with spring bone physics</li>
+                            <li>All texture files</li>
+                        </ul>
+                    </div>
+                    <div class="slider-container">
+                        <button class="slider-arrow" id="model-prev-btn">‹</button>
+                        <div class="thumbnail-wrapper" id="model-thumb-wrapper">
+                            <div class="thumbnail" data-video-src="3dmain1.mp4"><img src="3dmain1.png" alt="Thumbnail Model 1"></div>
+                            <div class="thumbnail" data-video-src="3dmain2.mp4"><img src="3dmain2.png" alt="Thumbnail Model 2"></div>
+                            <div class="thumbnail" data-video-src="3dmain3.mp4"><img src="3dmain3.png" alt="Thumbnail Model 3"></div>
+                            <div class="thumbnail" data-video-src="3dmain4.mp4"><img src="3dmain4.png" alt="Thumbnail Model 4"></div>
+                        </div>
+                        <button class="slider-arrow" id="model-next-btn">›</button>
+                    </div>
+                     <div class="slider-indicator"></div>
+                    <a href="https://vgen.co/ciona/service/3d-vtuber-model-vrchat-avatar/8da93ba3-d9b6-444e-bfbf-73fa101f0b84" target="_blank" class="vgen-link">VGen Link</a>
+                </div>
+            </div>
+        </section>
+        <!-- END: 3D Model Section -->
+
+        <!-- START: 3D Chibi Model Section -->
+        <section id="chibi-section" class="portfolio-section chibi-section">
+            <div class="chibi-title-container">
+                <h1 class="chibi-title-bg">CHIBI MODEL</h1>
+                <div class="chibi-title-wrapper">
+                     <h2 class="chibi-title">[ 3D Chibi Model ]</h2>
+                     <p class="chibi-subtitle">// Anime - Rendered style</p>
+                </div>
+            </div>
+            <div class="chibi-content-wrapper">
+                <button class="chibi-nav-arrow" id="chibi-prev">←</button>
+                <div class="image-stack-slider"></div>
+                <button class="chibi-nav-arrow" id="chibi-next">→</button>
+            </div>
+            <div class="chibi-details">
+                <div class="video-thumbnail-container" id="chibi-video-thumb"></div>
+                <div class="chibi-vgen-wrapper">
+                     <div class="red-line-decorator"></div>
+                     <a href="https://vgen.co/ciona/service/3d-chibi-vtuber-vrchat-avatar/b80433e6-1262-4a3b-aaac-f336bcf79cbf" target="_blank" class="vgen-link">VGen Link</a>
+                </div>
+            </div>
+        </section>
+        <!-- END: 3D Chibi Model Section -->
+
+        <!-- START: Live2D Model Section -->
+        <section id="live2d-section" class="portfolio-section live2d-section">
+            <div class="title-container">
+                <p class="subtitle">// Anime - Rendered style</p>
+                <h1 class="main-title-bg">LIVE2D MODEL</h1>
+                <div class="main-title-wrapper">
+                    <h2 class="main-title">[ Live2D Model ]</h2>
+                </div>
+            </div>
+            <div class="portfolio-grid live2d-grid">
+                 <div class="details-container">
+                    <div class="model-includes">
+                        <h4>Includes</h4>
+                        <ul>
+                            <li>A fully rendered and detailed character in .psd, .png file</li>
+                            <li>Simple background included</li>
+                        </ul>
+                    </div>
+                    <div class="slider-container">
+                        <button class="slider-arrow" id="l2d-prev-btn">‹</button>
+                        <div class="thumbnail-wrapper" id="l2d-thumb-wrapper">
+                           <div class="thumbnail" data-img-src="l2d_1.png" data-video-src="l2d_1.mp4"><img src="l2d_1.png" alt="Thumbnail L2D 1"></div>
+                           <div class="thumbnail" data-img-src="l2d_2.png" data-video-src="l2d_2.mp4"><img src="l2d_2.png" alt="Thumbnail L2D 2"></div>
+                           <div class="thumbnail" data-img-src="l2d_3.png" data-video-src="l2d_3.mp4"><img src="l2d_3.png" alt="Thumbnail L2D 3"></div>
+                           <div class="thumbnail" data-img-src="all_model.png" data-video-src=""><img src="all_model.png" alt="Show all models"></div>
+                        </div>
+                        <button class="slider-arrow" id="l2d-next-btn">›</button>
+                    </div>
+                     <div class="slider-indicator"></div>
+                    <a href="https://vgen.co/ciona/service/live2d-vtuber-art/2e9eca34-e2b6-4c50-b2e4-20e3952801fa" target="_blank" class="vgen-link">VGen Link</a>
+                </div>
+                <div class="l2d-display-container">
+                    <div class="image-container"><img id="l2d-main-image" src="all_model.png" alt="Live2D Model Showcase"></div>
+                    <div class="video-thumbnail-container" id="l2d-video-thumb"></div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Live2D Model Section -->
+
+        <!-- START: Character Design Section -->
+        <section id="design-section" class="portfolio-section design-section">
+            <div class="title-container">
+                <p class="subtitle">// Anime - Rendered style</p>
+                <h1 class="main-title-bg">CHARACTER DESIGN</h1>
+                <div class="main-title-wrapper">
+                    <h2 class="main-title">Character Design</h2>
+                </div>
+            </div>
+            <div class="design-grid">
+                <div class="design-thumbnail-slider">
+                    <button class="design-arrow" id="design-prev">↑</button>
+                    <div class="design-thumbnail-wrapper">
+                        <img src="des1.png" alt="Design 1 Thumbnail" class="design-thumb active-thumb">
+                        <img src="des2.png" alt="Design 2 Thumbnail" class="design-thumb">
+                        <img src="des3.png" alt="Design 3 Thumbnail" class="design-thumb">
+                        <img src="des4.png" alt="Design 4 Thumbnail" class="design-thumb">
+                    </div>
+                    <button class="design-arrow" id="design-next">↓</button>
+                </div>
+                <div class="design-main-content">
+                    <img src="des1.png" alt="Character Design 1" id="design-main-image">
+                    <a href="https://vgen.co/ciona/service/character-sheet/7e1f5ed1-8d5b-413a-a010-4e6fd0fcbc41" target="_blank" class="vgen-link">VGen Link</a>
+                </div>
+            </div>
+        </section>
+        <!-- END: Character Design Section -->
+        
+        <!-- START: 2D Illustration Section -->
+        <section id="illustration-section" class="portfolio-section illustration-section">
+            <div class="title-container">
+                 <p class="subtitle">// Anime - Rendered style</p>
+                 <h1 class="main-title-bg">ILLUSTRATION</h1>
+                 <div class="main-title-wrapper">
+                     <h2 class="main-title">[ 2D Illustration ]</h2>
+                 </div>
+            </div>
+            <div class="illustration-slider-container">
+                <div class="slider-track">
+                    <div class="slide"><img src="illust1.png" alt="Illustration 1" class="slide-image"></div>
+                    <div class="slide"><img src="illust2.png" alt="Illustration 2" class="slide-image"></div>
+                    <div class="slide"><img src="illust3.png" alt="Illustration 3" class="slide-image"></div>
+                    <div class="slide"><img src="illust4.png" alt="Illustration 4" class="slide-image"></div>
+                </div>
+                <button class="nav-button nav-prev">❮</button>
+                <button class="nav-button nav-next">❯</button>
+                <div class="indicators"></div>
+            </div>
+            <div class="illustration-vgen-wrapper">
+                <a href="https://vgen.co/ciona/service/head-profile-icon-pfp/eac15741-7ffd-45ba-98f3-ff63ddbe21be" target="_blank" class="vgen-link">VGen Link</a>
+            </div>
+        </section>
+        <!-- END: 2D Illustration Section -->
+
+        <!-- START: 2D - 3D Animation Section -->
+        <section id="animation-section" class="portfolio-section animation-section">
+            <div class="title-container">
+                <h1 class="main-title-bg" style="font-size: 7rem;">ANIMATION</h1>
+                <div class="main-title-wrapper">
+                    <h2 class="main-title">[ 2D - 3D Animation ]</h2>
+                </div>
+            </div>
+            <div class="animation-content-wrapper">
+                <button class="chibi-nav-arrow" id="anim-prev">←</button>
+                <div class="image-stack-slider" id="animation-slider">
+                    <!-- Videos will be injected here by JS -->
+                </div>
+                <button class="chibi-nav-arrow" id="anim-next">→</button>
+            </div>
+            <div class="illustration-vgen-wrapper">
+                <a href="https://vgen.co/ciona/service/lore-mv-video-illustration-animation-/78e2e64c-2981-41d3-ac28-f10851e84832" target="_blank" class="vgen-link">VGen Link</a>
+            </div>
+        </section>
+        <!-- END: 2D - 3D Animation Section -->
+
+        <!-- Floating Action Elements -->
+        <div class="floating-elements">
+            <div class="floating-btn" title="Scroll to top" id="scrollTop">↑</div>
+            <div class="floating-btn" title="Toggle music" id="musicToggle">♪</div>
+        </div>
+    </main>
+    
+    <audio id="bgm" src="BGM.wav" loop></audio>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="social-icons">
+                    <a href="https://x.com/cionaodh44" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                    <a href="https://www.facebook.com/cionaodh44/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"></path></svg></a>
+                    <a href="https://www.youtube.com/@CionaCh" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.043c-.24-.892-.94-1.593-1.832-1.832C18.25 4.97 12 4.97 12 4.97s-6.25 0-7.75.241c-.892.24-1.593.94-1.832 1.832C2.177 8.543 2.177 12 2.177 12s0 3.457.241 4.957c.24.892.94 1.593 1.832 1.832C5.75 19.03 12 19.03 12 19.03s6.25 0 7.75-.241c.892-.24 1.593-.94 1.832-1.832C21.823 15.457 21.823 12 21.823 12s0-3.457-.241-4.957zM9.709 14.828V9.172l5.418 2.828-5.418 2.828z"></path></svg></a>
+                </div>
+                <div class="language-switcher">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>
+                    <span>EN</span> / <span>VI</span>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <div class="footer-brand"><img src="logo.png" alt="Cionaodh44 Logo" class="footer-logo"></div>
+                <div class="footer-contact"><p>Questions? Reach out to me at <a href="mailto:cionaodh44@gmail.com">cionaodh44@gmail.com</a></p></div>
+                <div class="footer-copyright"><p>© 2021-2025 Cionaodh44. All Rights Reserved.</p></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Universal Modal -->
+    <div class="modal" id="video-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <video class="modal-media" controls></video>
+        </div>
+    </div>
+    <div class="modal" id="image-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img class="modal-media" alt="Full screen illustration">
+        </div>
+    </div>
+
+    <script>
+        // --- All Dynamic Scripts ---
+        window.addEventListener('load', () => { document.getElementById('bgm').play().catch(() => console.log('Autoplay prevented.')); setTimeout(() => { document.getElementById('loading').classList.add('hidden'); }, 1000); });
+        function createParticles() { const particlesContainer = document.getElementById('particles'); for (let i = 0; i < 100; i++) { const particle = document.createElement('div'); particle.classList.add('particle'); const size = Math.random() * 4 + 1; const startPosition = Math.random() * window.innerWidth; const animationDuration = Math.random() * 10 + 10; const delay = Math.random() * 15; particle.style.width = `${size}px`; particle.style.height = `${size}px`; particle.style.left = `${startPosition}px`; particle.style.animationDuration = `${animationDuration}s`; particle.style.animationDelay = `${delay}s`; particlesContainer.appendChild(particle); } } createParticles();
+        const header = document.getElementById('header'); window.addEventListener('scroll', () => { if (window.scrollY > 100) { header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); } const scrollProgress = document.getElementById('scrollProgress'); const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100; scrollProgress.style.width = `${Math.min(scrollPercent, 100)}%`; });
+        const hamburgerMenu = document.getElementById('hamburger-menu'); const mainNav = document.getElementById('mainNav'); hamburgerMenu.addEventListener('click', () => { hamburgerMenu.classList.toggle('is-active'); mainNav.classList.toggle('is-active'); });
+        document.getElementById('scrollTop').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        const musicToggle = document.getElementById('musicToggle'); const bgm = document.getElementById('bgm'); musicToggle.addEventListener('click', function() { if (bgm.paused) { bgm.play(); this.textContent = '♪'; } else { bgm.pause(); this.textContent = '🔇'; } });
+        const cursor = document.getElementById('custom-cursor'); window.addEventListener('mousemove', (e) => { cursor.style.left = `${e.clientX}px`; cursor.style.top = `${e.clientY}px`; }); function createParticleSpray(x, y) { const particle = document.createElement('div'); particle.classList.add('cursor-particle'); document.body.appendChild(particle); const size = Math.random() * 4 + 2; particle.style.width = `${size}px`; particle.style.height = `${size}px`; const destinationX = (Math.random() - 0.5) * 60; const destinationY = (Math.random() - 0.5) * 60; particle.style.setProperty('--x', `${destinationX}px`); particle.style.setProperty('--y', `${destinationY}px`); particle.style.left = `${x}px`; particle.style.top = `${y}px`; setTimeout(() => { particle.remove(); }, 600); } let lastParticleTime = 0; window.addEventListener('mousemove', (e) => { const now = Date.now(); if (now - lastParticleTime > 30) { createParticleSpray(e.clientX, e.clientY); lastParticleTime = now; } });
+        
+        // --- Page Specific Scripts ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Universal Modal ---
+            const videoModal = document.getElementById('video-modal');
+            const imageModal = document.getElementById('image-modal');
+            const videoPlayer = videoModal.querySelector('.modal-media');
+            const imagePlayer = imageModal.querySelector('.modal-media');
+            const openModal = (type, src) => { document.body.classList.add('modal-open'); if (type === 'video') { videoPlayer.src = src; videoModal.style.display = 'flex'; videoPlayer.play(); } else if (type === 'image') { imagePlayer.src = src; imageModal.style.display = 'flex'; } };
+            const closeModal = (modal) => { document.body.classList.remove('modal-open'); modal.style.display = 'none'; const media = modal.querySelector('.modal-media'); if (media.tagName === 'VIDEO') media.pause(); media.src = ''; };
+            document.querySelectorAll('.modal-close, .modal-overlay').forEach(el => { el.addEventListener('click', (e) => closeModal(e.currentTarget.closest('.modal'))); });
+
+            function scrollSlider(wrapper, direction, isVertical = false) { const scrollDim = isVertical ? 'offsetHeight' : 'offsetWidth'; const scrollProp = isVertical ? 'scrollTop' : 'scrollLeft'; const scrollAmount = wrapper.firstElementChild[scrollDim] + parseInt(window.getComputedStyle(wrapper).gap); wrapper.scrollTo({ [isVertical ? 'top' : 'left']: wrapper[scrollProp] + direction * scrollAmount, behavior: 'smooth' }); }
+
+            // --- 3D Model Section ---
+            const mainVideoPlayer = document.getElementById('portfolio-video');
+            const modelThumbnails = document.querySelectorAll('#model-thumb-wrapper .thumbnail');
+            const modelPrevBtn = document.getElementById('model-prev-btn');
+            const modelNextBtn = document.getElementById('model-next-btn');
+            const modelThumbnailWrapper = document.getElementById('model-thumb-wrapper');
+            function setModelActive(index) { if (index < 0 || index >= modelThumbnails.length) return; const selectedThumb = modelThumbnails[index]; const videoSrc = selectedThumb.dataset.videoSrc; if (!mainVideoPlayer.src.endsWith(videoSrc)) { mainVideoPlayer.src = videoSrc; mainVideoPlayer.play(); } modelThumbnails.forEach((thumb, i) => thumb.classList.toggle('active-thumb', i === index)); }
+            modelThumbnails.forEach((thumb, index) => { thumb.addEventListener('mouseover', () => setModelActive(index)); thumb.addEventListener('click', () => setModelActive(index)); });
+            modelPrevBtn.addEventListener('click', () => scrollSlider(modelThumbnailWrapper, -1));
+            modelNextBtn.addEventListener('click', () => scrollSlider(modelThumbnailWrapper, 1));
+            setModelActive(0);
+
+            // --- Live2D Section ---
+            const l2dMainImage = document.getElementById('l2d-main-image');
+            const l2dVideoThumb = document.getElementById('l2d-video-thumb');
+            const l2dThumbnails = document.querySelectorAll('#l2d-thumb-wrapper .thumbnail');
+            const l2dPrevBtn = document.getElementById('l2d-prev-btn');
+            const l2dNextBtn = document.getElementById('l2d-next-btn');
+            const l2dThumbnailWrapper = document.getElementById('l2d-thumb-wrapper');
+            function setL2DActive(index) { if (index < 0 || index >= l2dThumbnails.length) return; const selectedThumb = l2dThumbnails[index]; l2dMainImage.src = selectedThumb.dataset.imgSrc; const videoSrc = selectedThumb.dataset.videoSrc; if (videoSrc) { l2dVideoThumb.style.backgroundImage = `url(${selectedThumb.dataset.imgSrc})`; l2dVideoThumb.dataset.videoSrc = videoSrc; l2dVideoThumb.style.display = 'block'; } else { l2dVideoThumb.style.display = 'none'; } l2dThumbnails.forEach((thumb, i) => thumb.classList.toggle('active-thumb', i === index)); }
+            l2dThumbnails.forEach((thumb, index) => { thumb.addEventListener('click', () => setL2DActive(index)); });
+            l2dVideoThumb.addEventListener('click', (e) => openModal('video', e.currentTarget.dataset.videoSrc));
+            l2dPrevBtn.addEventListener('click', () => scrollSlider(l2dThumbnailWrapper, -1));
+            l2dNextBtn.addEventListener('click', () => scrollSlider(l2dThumbnailWrapper, 1));
+            setL2DActive(l2dThumbnails.length - 1);
+
+            // --- 3D Chibi Model Section ---
+            const chibiData = [ { img: 'chibi1.png', video: 'chibi1.mp4' }, { img: 'chibi2.png', video: 'chibi2.mp4' }, { img: 'chibi3.png', video: 'chibi3.mp4' }, { img: 'chibi4.png', video: 'chibi4.mp4' }];
+            let currentChibiIndex = 0;
+            const chibiSlider = document.querySelector('.image-stack-slider');
+            const chibiPrevBtn = document.getElementById('chibi-prev');
+            const chibiNextBtn = document.getElementById('chibi-next');
+            const chibiVideoThumb = document.getElementById('chibi-video-thumb');
+            chibiData.forEach(item => { chibiSlider.innerHTML += `<div class="slide"><img src="${item.img}"></div>`; });
+            const chibiSlides = chibiSlider.querySelectorAll('.slide');
+            function showChibi(index) { chibiSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === index)); chibiVideoThumb.style.backgroundImage = `url(${chibiData[index].img})`; chibiVideoThumb.dataset.videoSrc = chibiData[index].video; }
+            chibiPrevBtn.addEventListener('click', () => { currentChibiIndex = (currentChibiIndex > 0) ? currentChibiIndex - 1 : chibiData.length - 1; showChibi(currentChibiIndex); });
+            chibiNextBtn.addEventListener('click', () => { currentChibiIndex = (currentChibiIndex < chibiData.length - 1) ? currentChibiIndex + 1 : 0; showChibi(currentChibiIndex); });
+            chibiVideoThumb.addEventListener('click', (e) => openModal('video', e.currentTarget.dataset.videoSrc));
+            showChibi(0);
+            
+            // --- Character Design Section ---
+            const designMainImage = document.getElementById('design-main-image');
+            const designThumbs = document.querySelectorAll('.design-thumb');
+            const designPrevBtn = document.getElementById('design-prev');
+            const designNextBtn = document.getElementById('design-next');
+            const designThumbWrapper = document.querySelector('.design-thumbnail-wrapper');
+            function setDesignActive(index) { if (index < 0 || index >= designThumbs.length) return; const selectedThumb = designThumbs[index]; designMainImage.src = selectedThumb.src; designThumbs.forEach((thumb, i) => thumb.classList.toggle('active-thumb', i === index)); }
+            designThumbs.forEach((thumb, index) => thumb.addEventListener('click', () => setDesignActive(index)));
+            designPrevBtn.addEventListener('click', () => scrollSlider(designThumbWrapper, -1, true));
+            designNextBtn.addEventListener('click', () => scrollSlider(designThumbWrapper, 1, true));
+            setDesignActive(0);
+
+            // --- 2D Illustration Section ---
+            const illustSlider = document.querySelector('.illustration-slider-container');
+            if (illustSlider) {
+                let currentIllustSlide = 0;
+                const slides = illustSlider.querySelectorAll('.slide');
+                const indicatorsContainer = illustSlider.querySelector('.indicators');
+                const totalSlides = slides.length;
+                for (let i = 0; i < totalSlides; i++) { const indicator = document.createElement('span'); indicator.className = 'indicator'; indicator.onclick = () => goToSlide(i); indicatorsContainer.appendChild(indicator); }
+                const indicators = indicatorsContainer.querySelectorAll('.indicator');
+                function updateIllustSlidePositions() { slides.forEach((slide, index) => { slide.className = 'slide'; if (index === currentIllustSlide) slide.classList.add('active'); else if (index === (currentIllustSlide - 1 + totalSlides) % totalSlides) slide.classList.add('prev'); else if (index === (currentIllustSlide + 1) % totalSlides) slide.classList.add('next'); else slide.classList.add('hidden'); }); indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentIllustSlide)); }
+                function nextSlide() { currentIllustSlide = (currentIllustSlide + 1) % totalSlides; updateIllustSlidePositions(); }
+                function previousSlide() { currentIllustSlide = (currentIllustSlide - 1 + totalSlides) % totalSlides; updateIllustSlidePositions(); }
+                function goToSlide(index) { currentIllustSlide = index; updateIllustSlidePositions(); }
+                slides.forEach(slide => { slide.addEventListener('click', () => { const imgSrc = slide.querySelector('img').src; openModal('image', imgSrc); }); });
+                illustSlider.querySelector('.nav-next').onclick = nextSlide;
+                illustSlider.querySelector('.nav-prev').onclick = previousSlide;
+                updateIllustSlidePositions();
+            }
+
+            // --- 2D - 3D Animation Section ---
+            const animationData = ['animation1.mp4', 'animation2.mp4', 'animation3.mp4'];
+            let currentAnimIndex = 0;
+            const animSlider = document.getElementById('animation-slider');
+            const animPrevBtn = document.getElementById('anim-prev');
+            const animNextBtn = document.getElementById('anim-next');
+            animationData.forEach(videoSrc => {
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                const video = document.createElement('video');
+                video.src = videoSrc;
+                video.autoplay = true;
+                video.muted = true;
+                video.loop = true;
+                video.playsInline = true;
+                const playIcon = document.createElement('div');
+                playIcon.className = 'play-icon-overlay';
+                slide.appendChild(video);
+                slide.appendChild(playIcon);
+                slide.addEventListener('click', () => openModal('video', videoSrc));
+                animSlider.appendChild(slide);
+            });
+            const animSlides = animSlider.querySelectorAll('.slide');
+            function showAnimation(index) {
+                animSlides.forEach((slide, i) => {
+                    const video = slide.querySelector('video');
+                    if (i === index) {
+                        slide.classList.add('is-active');
+                        video.play();
+                    } else {
+                        slide.classList.remove('is-active');
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                });
+            }
+            animPrevBtn.addEventListener('click', () => { currentAnimIndex = (currentAnimIndex > 0) ? currentAnimIndex - 1 : animationData.length - 1; showAnimation(currentAnimIndex); });
+            animNextBtn.addEventListener('click', () => { currentAnimIndex = (currentAnimIndex < animationData.length - 1) ? currentAnimIndex + 1 : 0; showAnimation(currentAnimIndex); });
+            if(animSlides.length > 0) showAnimation(0);
+        });
+    </script>
+</body>
+</html>

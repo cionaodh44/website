@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cionaodh44 - About Me</title>
+    <!-- Updated Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <!-- Custom Cursor Elements -->
+    <div id="custom-cursor"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <header class="main-header" id="header">
+        <a href="index.html" class="nav-link-home">Home</a>
+        <nav class="main-nav" id="mainNav">
+            <ul class="nav-links">
+                <li><a href="about.html" class="nav-link">About me</a></li>
+                <li><a href="work.html" class="nav-link">Portfolio</a></li>
+                <li><a href="TOS.html" class="nav-link">TOS</a></li>
+                <li><a href="https://vgen.co/ciona" target="_blank" class="nav-link">VGen</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Open navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- START: Page Specific Content -->
+        <section class="about-section">
+            <div class="image-container">
+                <img src="about_main.png" alt="Main background" class="about-main-image">
+
+                <div class="interactive-image" id="img-about1">
+                    <img src="about1.png" alt="About 1" class="main-img">
+                    <img src="about1_alter.png" alt="About 1 Alter" class="alter-img">
+                </div>
+                <div class="interactive-image" id="img-about2">
+                    <img src="about2.png" alt="About 2" class="main-img">
+                    <img src="about2_alter.png" alt="About 2 Alter" class="alter-img">
+                </div>
+                <div class="interactive-image" id="img-about3">
+                    <img src="about3.png" alt="About 3" class="main-img">
+                    <img src="about3_alter.png" alt="About 3 Alter" class="alter-img">
+                </div>
+            </div>
+            <div class="text-container">
+                <div id="desc-about1" class="description-content">
+                    <h2>About Me</h2>
+                    <p>Hi, I'm Ciona, a freelance artist from Vietnam. I enjoy creating 2D and 3D artworks in anime-chibi style.</p>
+                    <p>Please only DM me via VGen or Twitter @cionaodh44. I rarely check messages from other platforms!!</p>
+                    <h3>Skills:</h3>
+                    <p>Clip Studio Paint, Blender, Unity, Substance Painter, Live2D, DaVinci Resolve</p>
+                    <p>Currently studying Bachelor of Design (Digital Media), sometimes have art stream on Youtube.</p>
+                </div>
+                <div id="desc-about2" class="description-content hidden">
+                    <h2>Mascot</h2>
+                    <p>Meet my mascot, who also serves as my VTuber model! I’d be truly grateful if you’d like to create some fanart of them.</p>
+                    <h3>Main design details:</h3>
+                    <ul>
+                        <li>A small fang on one side</li>
+                        <li>Red makeup around the eyes</li>
+                        <li>Red nails</li>
+                    </ul>
+                    <div class="mascot-images">
+                        <img src="mascot.png" alt="Mascot">
+                        <img src="chibi_all.png" alt="Chibi All">
+                    </div>
+                </div>
+                <div id="desc-about3" class="description-content hidden">
+                    <h2>My Journey</h2>
+                    <p>Since childhood, I’ve been passionate about anime and manga, spending countless hours learning and practicing to bring my ideas to life. In 2021, I discovered 3D art and decided to fully dedicate myself to this field. Since then, I’ve completed over 150 projects—most of them for VTubers—helping creators transform their characters and visions into immersive 3D worlds.</p>
+                    <p>My work combines the influence of anime aesthetics with the possibilities of 3D technology, allowing me to create art that feels both nostalgic and innovative. Beyond just technical skill, I aim to capture personality and emotion in every project, ensuring each creation tells its own story.</p>
+                </div>
+            </div>
+        </section>
+        <!-- END: Page Specific Content -->
+
+        <!-- Floating Action Elements -->
+        <div class="floating-elements">
+            <div class="floating-btn" title="Scroll to top" id="scrollTop">↑</div>
+            <div class="floating-btn" title="Toggle music" id="musicToggle">♪</div>
+        </div>
+    </main>
+    
+    <audio id="bgm" src="BGM.wav" loop></audio>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="social-icons">
+                    <a href="https://x.com/cionaodh44" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="https://www.facebook.com/cionaodh44/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@CionaCh" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.043c-.24-.892-.94-1.593-1.832-1.832C18.25 4.97 12 4.97 12 4.97s-6.25 0-7.75.241c-.892.24-1.593.94-1.832 1.832C2.177 8.543 2.177 12 2.177 12s0 3.457.241 4.957c.24.892.94 1.593 1.832 1.832C5.75 19.03 12 19.03 12 19.03s6.25 0 7.75-.241c.892-.24 1.593-.94 1.832-1.832C21.823 15.457 21.823 12 21.823 12s0-3.457-.241-4.957zM9.709 14.828V9.172l5.418 2.828-5.418 2.828z"></path></svg>
+                    </a>
+                </div>
+                <div class="language-switcher">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>
+                    <span>EN</span> / <span>VI</span>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Cionaodh44 Logo" class="footer-logo">
+                </div>
+                <div class="footer-contact">
+                    <p>Questions? Reach out to me at <a href="mailto:cionaodh44@gmail.com">cionaodh44@gmail.com</a></p>
+                </div>
+                <div class="footer-copyright">
+                    <p>© 2021-2025 Cionaodh44. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- All Dynamic Scripts ---
+        window.addEventListener('load', () => { document.getElementById('bgm').play().catch(() => console.log('Autoplay prevented.')); setTimeout(() => { document.getElementById('loading').classList.add('hidden'); }, 1000); });
+        function createParticles() { const particlesContainer = document.getElementById('particles'); for (let i = 0; i < 100; i++) { const particle = document.createElement('div'); particle.classList.add('particle'); const size = Math.random() * 4 + 1; const startPosition = Math.random() * window.innerWidth; const animationDuration = Math.random() * 10 + 10; const delay = Math.random() * 15; particle.style.width = `${size}px`; particle.style.height = `${size}px`; particle.style.left = `${startPosition}px`; particle.style.animationDuration = `${animationDuration}s`; particle.style.animationDelay = `${delay}s`; particlesContainer.appendChild(particle); } } createParticles();
+        const header = document.getElementById('header'); window.addEventListener('scroll', () => { if (window.scrollY > 100) { header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); } const scrollProgress = document.getElementById('scrollProgress'); const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100; scrollProgress.style.width = `${Math.min(scrollPercent, 100)}%`; });
+        const hamburgerMenu = document.getElementById('hamburger-menu'); const mainNav = document.getElementById('mainNav'); hamburgerMenu.addEventListener('click', () => { hamburgerMenu.classList.toggle('is-active'); mainNav.classList.toggle('is-active'); });
+        const feedbackScroller = document.getElementById('feedbackScroller'); if (feedbackScroller) { let isDown = false, startX, scrollLeft; feedbackScroller.addEventListener('wheel', (e) => { e.preventDefault(); feedbackScroller.scrollLeft += e.deltaY; }); feedbackScroller.addEventListener('mousedown', (e) => { isDown = true; feedbackScroller.classList.add('active'); startX = e.pageX - feedbackScroller.offsetLeft; scrollLeft = feedbackScroller.scrollLeft; }); feedbackScroller.addEventListener('mouseleave', () => { isDown = false; feedbackScroller.classList.remove('active'); }); feedbackScroller.addEventListener('mouseup', () => { isDown = false; feedbackScroller.classList.remove('active'); }); feedbackScroller.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - feedbackScroller.offsetLeft; const walk = (x - startX) * 3; feedbackScroller.scrollLeft = scrollLeft - walk; }); }
+        document.getElementById('scrollTop').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        const musicToggle = document.getElementById('musicToggle'); const bgm = document.getElementById('bgm'); musicToggle.addEventListener('click', function() { if (bgm.paused) { bgm.play(); this.textContent = '♪'; } else { bgm.pause(); this.textContent = '🔇'; } });
+        const cursor = document.getElementById('custom-cursor'); window.addEventListener('mousemove', (e) => { cursor.style.left = `${e.clientX}px`; cursor.style.top = `${e.clientY}px`; }); function createParticleSpray(x, y) { const particle = document.createElement('div'); particle.classList.add('cursor-particle'); document.body.appendChild(particle); const size = Math.random() * 4 + 2; particle.style.width = `${size}px`; particle.style.height = `${size}px`; const destinationX = (Math.random() - 0.5) * 60; const destinationY = (Math.random() - 0.5) * 60; particle.style.setProperty('--x', `${destinationX}px`); particle.style.setProperty('--y', `${destinationY}px`); particle.style.left = `${x}px`; particle.style.top = `${y}px`; setTimeout(() => { particle.remove(); }, 600); } let lastParticleTime = 0; window.addEventListener('mousemove', (e) => { const now = Date.now(); if (now - lastParticleTime > 30) { createParticleSpray(e.clientX, e.clientY); lastParticleTime = now; } });
+        const canvas = document.getElementById('image-sequence-canvas'); if (canvas) { const context = canvas.getContext('2d'); const frameCount = 51; const imageFolderName = '1'; const currentFrame = index => `${imageFolderName}/image_007_${index.toString().padStart(4, '0')}.png`; function setCanvasSize() { const dpi = window.devicePixelRatio || 1; canvas.width = window.innerWidth * dpi; canvas.height = window.innerHeight * dpi; updateImage(imageSequence.frame); } window.addEventListener('resize', setCanvasSize); const images = []; const imageSequence = { frame: 0 }; const preloadImages = () => { for (let i = 0; i < frameCount; i++) { const img = new Image(); img.src = currentFrame(i); images.push(img); } }; Promise.all(images.map(img => new Promise(resolve => img.onload = resolve))).then(() => { setCanvasSize(); updateImage(0); }); preloadImages(); function updateImage(index) { if (!images[index] || !images[index].complete) return; const img = images[index]; const canvasWidth = canvas.width; const canvasHeight = canvas.height; const imgAspectRatio = img.naturalWidth / img.naturalHeight; const canvasAspectRatio = canvasWidth / canvasHeight; let renderWidth, renderHeight, xStart, yStart; if (imgAspectRatio > canvasAspectRatio) { renderHeight = canvasHeight; renderWidth = canvasHeight * imgAspectRatio; xStart = (canvasWidth - renderWidth) / 2; yStart = 0; } else { renderWidth = canvasWidth; renderHeight = canvasWidth / imgAspectRatio; xStart = 0; yStart = (canvasHeight - renderHeight) / 2; } context.clearRect(0, 0, canvasWidth, canvasHeight); context.drawImage(img, xStart, yStart, renderWidth, renderHeight); } window.addEventListener('scroll', () => { const container = document.querySelector('.image-sequence-container'); if (!container) return; const scrollTop = window.scrollY; const containerOffsetTop = container.offsetTop; const containerHeight = container.scrollHeight; const viewportHeight = window.innerHeight; const scrollableHeight = containerHeight - viewportHeight; const scrollProgress = (scrollTop - containerOffsetTop) / scrollableHeight; const clampedProgress = Math.min(1, Math.max(0, scrollProgress)); const desiredFrame = Math.floor(clampedProgress * (frameCount - 1)); imageSequence.frame = desiredFrame; requestAnimationFrame(() => updateImage(desiredFrame)); }); }
+
+        // --- Page Specific Script ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const interactiveImages = document.querySelectorAll('.interactive-image');
+            const descriptions = document.querySelectorAll('.description-content');
+
+            // Set default state
+            const defaultImage = document.getElementById('img-about1');
+            const defaultDesc = document.getElementById('desc-about1');
+            defaultImage.classList.add('active');
+            defaultDesc.classList.remove('hidden');
+
+            interactiveImages.forEach(image => {
+                image.addEventListener('click', () => {
+                    // If already active, do nothing
+                    if (image.classList.contains('active')) {
+                        return;
+                    }
+
+                    // Reset all images and descriptions
+                    interactiveImages.forEach(img => img.classList.remove('active'));
+                    descriptions.forEach(desc => desc.classList.add('hidden'));
+
+                    // Activate the clicked one
+                    image.classList.add('active');
+                    const descId = 'desc-' + image.id.split('-')[1];
+                    document.getElementById(descId).classList.remove('hidden');
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading...</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background-color: #121212; /* Match site background */
+        font-family: Arial, sans-serif;
+    }
+
+    .loading-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* The percentage number display */
+    .loading-number {
+        position: absolute;
+        top: 40%;
+        font-size: 6vw;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        z-index: 4;
+    }
+
+    .loading-number::before {
+        content: '0%';
+        animation: count 1s linear forwards;
+    }
+
+    @keyframes count {
+        0% { content: '0%'; }
+        10% { content: '10%'; }
+        20% { content: '20%'; }
+        30% { content: '30%'; }
+        40% { content: '40%'; }
+        50% { content: '50%'; }
+        60% { content: '60%'; }
+        70% { content: '70%'; }
+        80% { content: '80%'; }
+        90% { content: '90%'; }
+        100% { content: '100%'; }
+    }
+
+    .loading-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #loading1 {
+        background-image: url('loading1.png');
+        z-index: 1;
+    }
+
+    #loading2 {
+        background-image: url('loading2.png');
+        z-index: 3;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    .progress-bar-container {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100vw;
+        height: 25px;
+        background-color: rgba(85, 85, 85, 0.5);
+        z-index: 2;
+        overflow: hidden;
+    }
+
+    .progress-bar-left,
+    .progress-bar-right {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        background-color: red;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    .progress-bar-left {
+        left: 0;
+        animation-name: progress-left;
+    }
+
+    .progress-bar-right {
+        right: 0;
+        animation-name: progress-right;
+    }
+
+    @keyframes progress-left {
+        from { width: 0%; }
+        to { width: 50%; }
+    }
+
+    @keyframes progress-right {
+        from { width: 0%; }
+        to { width: 50%; }
+    }
+</style>
+</head>
+<body>
+
+<div class="loading-container">
+    <div class="loading-number"></div>
+    <div id="loading1" class="loading-image"></div>
+    <div class="progress-bar-container">
+        <div class="progress-bar-left"></div>
+        <div class="progress-bar-right"></div>
+    </div>
+    <div id="loading2" class="loading-image"></div>
+</div>
+
+</body>
+</html>
