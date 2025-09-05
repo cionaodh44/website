@@ -67,7 +67,7 @@
             </div>
             <div class="portfolio-grid">
                 <div class="video-container">
-                    <video id="portfolio-video" src="3dmain1.mp4" controls autoplay muted loop></video>
+                    <video id="portfolio-video" src="https://youtu.be/R_CrnwdW9QU" controls autoplay muted loop></video>
                 </div>
                 <div class="details-container">
                     <div class="model-includes">
@@ -84,10 +84,10 @@
                     <div class="slider-container">
                         <button class="slider-arrow" id="model-prev-btn">‹</button>
                         <div class="thumbnail-wrapper" id="model-thumb-wrapper">
-                            <div class="thumbnail" data-video-src="3dmain1.mp4"><img src="3dmain1.png" alt="Thumbnail Model 1"></div>
-                            <div class="thumbnail" data-video-src="3dmain2.mp4"><img src="3dmain2.png" alt="Thumbnail Model 2"></div>
-                            <div class="thumbnail" data-video-src="3dmain3.mp4"><img src="3dmain3.png" alt="Thumbnail Model 3"></div>
-                            <div class="thumbnail" data-video-src="3dmain4.mp4"><img src="3dmain4.png" alt="Thumbnail Model 4"></div>
+                            <div class="thumbnail" data-video-src="https://youtu.be/R_CrnwdW9QU"><img src="3dmain1.png" alt="Thumbnail Model 1"></div>
+                            <div class="thumbnail" data-video-src="https://youtu.be/u1K_S3Hrdlc"><img src="3dmain2.png" alt="Thumbnail Model 2"></div>
+                            <div class="thumbnail" data-video-src="https://youtu.be/kznbnyAvkjQ"><img src="3dmain3.png" alt="Thumbnail Model 3"></div>
+                            <div class="thumbnail" data-video-src="https://youtu.be/4wYOluoSvjs"><img src="3dmain4.png" alt="Thumbnail Model 4"></div>
                         </div>
                         <button class="slider-arrow" id="model-next-btn">›</button>
                     </div>
@@ -333,7 +333,7 @@
             setL2DActive(l2dThumbnails.length - 1);
 
             // --- 3D Chibi Model Section ---
-            const chibiData = [ { img: 'chibi1.png', video: 'chibi1.mp4' }, { img: 'chibi2.png', video: 'chibi2.mp4' }, { img: 'chibi3.png', video: 'chibi3.mp4' }, { img: 'chibi4.png', video: 'chibi4.mp4' }];
+            const chibiData = [ { img: 'chibi1.png', video: 'https://youtu.be/ttsk1LFy9q8' }, { img: 'chibi2.png', video: 'https://youtu.be/UBT1hcwU2nY' }, { img: 'chibi3.png', video: 'https://youtu.be/Sr6InTdiSY4' }, { img: 'chibi4.png', video: 'https://youtu.be/lYTuhMD4OYA' }];
             let currentChibiIndex = 0;
             const chibiSlider = document.querySelector('.image-stack-slider');
             const chibiPrevBtn = document.getElementById('chibi-prev');
@@ -368,56 +368,4 @@
                 const totalSlides = slides.length;
                 for (let i = 0; i < totalSlides; i++) { const indicator = document.createElement('span'); indicator.className = 'indicator'; indicator.onclick = () => goToSlide(i); indicatorsContainer.appendChild(indicator); }
                 const indicators = indicatorsContainer.querySelectorAll('.indicator');
-                function updateIllustSlidePositions() { slides.forEach((slide, index) => { slide.className = 'slide'; if (index === currentIllustSlide) slide.classList.add('active'); else if (index === (currentIllustSlide - 1 + totalSlides) % totalSlides) slide.classList.add('prev'); else if (index === (currentIllustSlide + 1) % totalSlides) slide.classList.add('next'); else slide.classList.add('hidden'); }); indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentIllustSlide)); }
-                function nextSlide() { currentIllustSlide = (currentIllustSlide + 1) % totalSlides; updateIllustSlidePositions(); }
-                function previousSlide() { currentIllustSlide = (currentIllustSlide - 1 + totalSlides) % totalSlides; updateIllustSlidePositions(); }
-                function goToSlide(index) { currentIllustSlide = index; updateIllustSlidePositions(); }
-                slides.forEach(slide => { slide.addEventListener('click', () => { const imgSrc = slide.querySelector('img').src; openModal('image', imgSrc); }); });
-                illustSlider.querySelector('.nav-next').onclick = nextSlide;
-                illustSlider.querySelector('.nav-prev').onclick = previousSlide;
-                updateIllustSlidePositions();
-            }
-
-            // --- 2D - 3D Animation Section ---
-            const animationData = ['animation1.mp4', 'animation2.mp4', 'animation3.mp4'];
-            let currentAnimIndex = 0;
-            const animSlider = document.getElementById('animation-slider');
-            const animPrevBtn = document.getElementById('anim-prev');
-            const animNextBtn = document.getElementById('anim-next');
-            animationData.forEach(videoSrc => {
-                const slide = document.createElement('div');
-                slide.className = 'slide';
-                const video = document.createElement('video');
-                video.src = videoSrc;
-                video.autoplay = true;
-                video.muted = true;
-                video.loop = true;
-                video.playsInline = true;
-                const playIcon = document.createElement('div');
-                playIcon.className = 'play-icon-overlay';
-                slide.appendChild(video);
-                slide.appendChild(playIcon);
-                slide.addEventListener('click', () => openModal('video', videoSrc));
-                animSlider.appendChild(slide);
-            });
-            const animSlides = animSlider.querySelectorAll('.slide');
-            function showAnimation(index) {
-                animSlides.forEach((slide, i) => {
-                    const video = slide.querySelector('video');
-                    if (i === index) {
-                        slide.classList.add('is-active');
-                        video.play();
-                    } else {
-                        slide.classList.remove('is-active');
-                        video.pause();
-                        video.currentTime = 0;
-                    }
-                });
-            }
-            animPrevBtn.addEventListener('click', () => { currentAnimIndex = (currentAnimIndex > 0) ? currentAnimIndex - 1 : animationData.length - 1; showAnimation(currentAnimIndex); });
-            animNextBtn.addEventListener('click', () => { currentAnimIndex = (currentAnimIndex < animationData.length - 1) ? currentAnimIndex + 1 : 0; showAnimation(currentAnimIndex); });
-            if(animSlides.length > 0) showAnimation(0);
-        });
-    </script>
-</body>
-</html>
+                function updateIllustSlidePositions() { slides.forEach((slide, index) => { slide.className = 'slide'; if (index === currentIllustSlide) slide.classList.add('active'); else if (index === (currentIllustSlide - 1 + totalSlides) % totalSlides) slide.classList.add('prev'); else if (index === (currentIllustSlide + 1) % totalSlides) slide.classList.add('next'); else slide.classList.add('hidden'); }); indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentIllustSlide
