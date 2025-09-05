@@ -10,22 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Force YouTube embed to fill showcase */
-        .showcase-video-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        .showcase-video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
 </head>
 <body>
     <!-- Custom Cursor Elements -->
@@ -33,6 +17,7 @@
 
     <!-- Loading Screen -->
     <div class="loading" id="loading">
+        <!-- New Integrated Loading Scene -->
         <div class="loading-container">
             <div class="loading-number"></div>
             <div id="loading1" class="loading-image"></div>
@@ -72,12 +57,17 @@
         <div class="showcase-container">
             <div class="showcase-red-bar-left"></div>
             <div class="showcase-video-container">
-                <iframe src="https://www.youtube.com/embed/MylY2PpKoyQ?autoplay=1&mute=1&loop=1&playlist=MylY2PpKoyQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="showcase-video"></iframe>
+                <video src="work.mp4" loop autoplay muted playsinline class="showcase-video"></video>
             </div>
             <div class="showcase-title-background">PORFOLIO</div>
             <div class="showcase-black-box"></div>
             <div class="showcase-title-foreground">[ Ciona ]</div>
             <div class="showcase-red-bar-right"></div>
+        </div>
+
+        <!-- Image Sequence Slider -->
+        <div class="image-sequence-container">
+            <canvas id="image-sequence-canvas"></canvas>
         </div>
 
         <!-- Client Feedback Section -->
@@ -166,6 +156,7 @@
         document.getElementById('scrollTop').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
         const musicToggle = document.getElementById('musicToggle'); const bgm = document.getElementById('bgm'); musicToggle.addEventListener('click', function() { if (bgm.paused) { bgm.play(); this.textContent = '♪'; } else { bgm.pause(); this.textContent = '🔇'; } });
         const cursor = document.getElementById('custom-cursor'); window.addEventListener('mousemove', (e) => { cursor.style.left = `${e.clientX}px`; cursor.style.top = `${e.clientY}px`; }); function createParticleSpray(x, y) { const particle = document.createElement('div'); particle.classList.add('cursor-particle'); document.body.appendChild(particle); const size = Math.random() * 4 + 2; particle.style.width = `${size}px`; particle.style.height = `${size}px`; const destinationX = (Math.random() - 0.5) * 60; const destinationY = (Math.random() - 0.5) * 60; particle.style.setProperty('--x', `${destinationX}px`); particle.style.setProperty('--y', `${destinationY}px`); particle.style.left = `${x}px`; particle.style.top = `${y}px`; setTimeout(() => { particle.remove(); }, 600); } let lastParticleTime = 0; window.addEventListener('mousemove', (e) => { const now = Date.now(); if (now - lastParticleTime > 30) { createParticleSpray(e.clientX, e.clientY); lastParticleTime = now; } });
+        const canvas = document.getElementById('image-sequence-canvas'); if (canvas) { const context = canvas.getContext('2d'); const frameCount = 85; const imageFolderName = '1'; const currentFrame = index => `${imageFolderName}/image_007_${index.toString().padStart(4, '0')}.png`; function setCanvasSize() { const dpi = window.devicePixelRatio || 1; canvas.width = window.innerWidth * dpi; canvas.height = window.innerHeight * dpi; updateImage(imageSequence.frame); } window.addEventListener('resize', setCanvasSize); const images = []; const imageSequence = { frame: 0 }; const preloadImages = () => { for (let i = 0; i < frameCount; i++) { const img = new Image(); img.src = currentFrame(i); images.push(img); } }; Promise.all(images.map(img => new Promise(resolve => img.onload = resolve))).then(() => { setCanvasSize(); updateImage(0); }); preloadImages(); function updateImage(index) { if (!images[index] || !images[index].complete) return; const img = images[index]; const canvasWidth = canvas.width; const canvasHeight = canvas.height; const imgAspectRatio = img.naturalWidth / img.naturalHeight; const canvasAspectRatio = canvasWidth / canvasHeight; let renderWidth, renderHeight, xStart, yStart; if (imgAspectRatio > canvasAspectRatio) { renderHeight = canvasHeight; renderWidth = canvasHeight * imgAspectRatio; xStart = (canvasWidth - renderWidth) / 2; yStart = 0; } else { renderWidth = canvasWidth; renderHeight = canvasWidth / imgAspectRatio; xStart = 0; yStart = (canvasHeight - renderHeight) / 2; } context.clearRect(0, 0, canvasWidth, canvasHeight); context.drawImage(img, xStart, yStart, renderWidth, renderHeight); } window.addEventListener('scroll', () => { const container = document.querySelector('.image-sequence-container'); if (!container) return; const scrollTop = window.scrollY; const containerOffsetTop = container.offsetTop; const containerHeight = container.scrollHeight; const viewportHeight = window.innerHeight; const scrollableHeight = containerHeight - viewportHeight; const scrollProgress = (scrollTop - containerOffsetTop) / scrollableHeight; const clampedProgress = Math.min(1, Math.max(0, scrollProgress)); const desiredFrame = Math.floor(clampedProgress * (frameCount - 1)); imageSequence.frame = desiredFrame; requestAnimationFrame(() => updateImage(desiredFrame)); }); }
 
         // --- UPDATED: Image Modal Script ---
         const modal = document.getElementById('imageModal');
@@ -177,16 +168,17 @@
                 item.addEventListener('click', () => {
                     const imgSrc = item.querySelector('img').src;
                     modalImg.src = imgSrc;
-                    modal.classList.add('active');
+                    modal.classList.add('active'); // Use class to show
                 });
             });
 
             const closeModal = () => {
-                modal.classList.remove('active');
+                modal.classList.remove('active'); // Use class to hide
             }
 
             document.getElementById('modalClose').addEventListener('click', closeModal);
             modal.addEventListener('click', (e) => {
+                // Close if clicking on the overlay itself, not the image content
                 if (e.target === modal) {
                     closeModal();
                 }
