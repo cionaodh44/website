@@ -10,42 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="portfolio.css">
-    <style>
-        /* Add some basic styling for the iframes if needed, or update portfolio.css */
-        .video-container iframe,
-        .modal-media.youtube-embed {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .image-stack-slider .slide iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            pointer-events: none; /* Prevent interaction in stack view */
-        }
-        .modal-content {
-            padding: 0;
-            background-color: transparent;
-            max-width: 90vw;
-            max-height: 90vh;
-        }
-        .modal-media.youtube-embed {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        /* Ensure the modal background covers the whole screen */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 999;
-        }
-    </style>
 </head>
 <body>
     <!-- Custom Cursor Elements -->
@@ -103,7 +67,7 @@
             </div>
             <div class="portfolio-grid">
                 <div class="video-container">
-                    <iframe id="portfolio-video-iframe" src="https://www.youtube.com/embed/R_CrnwdW9QU?autoplay=1&mute=1&loop=1&playlist=R_CrnwdW9QU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <video id="portfolio-video" src="https://youtu.be/R_CrnwdW9QU" controls autoplay muted loop></video>
                 </div>
                 <div class="details-container">
                     <div class="model-includes">
@@ -120,10 +84,10 @@
                     <div class="slider-container">
                         <button class="slider-arrow" id="model-prev-btn">‹</button>
                         <div class="thumbnail-wrapper" id="model-thumb-wrapper">
-                            <div class="thumbnail active-thumb" data-youtube-id="R_CrnwdW9QU"><img src="3dmain1.png" alt="Thumbnail Model 1"></div>
-                            <div class="thumbnail" data-youtube-id="u1K_S3Hrdlc"><img src="3dmain2.png" alt="Thumbnail Model 2"></div>
-                            <div class="thumbnail" data-youtube-id="kznbnyAvkjQ"><img src="3dmain3.png" alt="Thumbnail Model 3"></div>
-                            <div class="thumbnail" data-youtube-id="4wYOluoSvjs"><img src="3dmain4.png" alt="Thumbnail Model 4"></div>
+                            <div class="thumbnail" data-video-src="https://youtu.be/R_CrnwdW9QU"><img src="3dmain1.png" alt="Thumbnail Model 1"></div>
+                            <div class="thumbnail" data-video-src="https://youtu.be/u1K_S3Hrdlc"><img src="3dmain2.png" alt="Thumbnail Model 2"></div>
+                            <div class="thumbnail" data-video-src="https://youtu.be/kznbnyAvkjQ"><img src="3dmain3.png" alt="Thumbnail Model 3"></div>
+                            <div class="thumbnail" data-video-src="https://youtu.be/4wYOluoSvjs"><img src="3dmain4.png" alt="Thumbnail Model 4"></div>
                         </div>
                         <button class="slider-arrow" id="model-next-btn">›</button>
                     </div>
@@ -182,7 +146,7 @@
                            <div class="thumbnail" data-img-src="l2d_1.png" data-video-src="l2d_1.mp4"><img src="l2d_1.png" alt="Thumbnail L2D 1"></div>
                            <div class="thumbnail" data-img-src="l2d_2.png" data-video-src="l2d_2.mp4"><img src="l2d_2.png" alt="Thumbnail L2D 2"></div>
                            <div class="thumbnail" data-img-src="l2d_3.png" data-video-src="l2d_3.mp4"><img src="l2d_3.png" alt="Thumbnail L2D 3"></div>
-                           <div class="thumbnail active-thumb" data-img-src="all_model.png" data-video-src=""><img src="all_model.png" alt="Show all models"></div>
+                           <div class="thumbnail" data-img-src="all_model.png" data-video-src=""><img src="all_model.png" alt="Show all models"></div>
                         </div>
                         <button class="slider-arrow" id="l2d-next-btn">›</button>
                     </div>
@@ -262,7 +226,7 @@
             <div class="animation-content-wrapper">
                 <button class="chibi-nav-arrow" id="anim-prev">←</button>
                 <div class="image-stack-slider" id="animation-slider">
-                    <!-- YouTube iframes will be injected here by JS -->
+                    <!-- Videos will be injected here by JS -->
                 </div>
                 <button class="chibi-nav-arrow" id="anim-next">→</button>
             </div>
@@ -308,7 +272,7 @@
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <button class="modal-close">&times;</button>
-            <iframe class="modal-media youtube-embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video class="modal-media" controls></video>
         </div>
     </div>
     <div class="modal" id="image-modal">
@@ -334,77 +298,25 @@
             // --- Universal Modal ---
             const videoModal = document.getElementById('video-modal');
             const imageModal = document.getElementById('image-modal');
-            const youtubePlayer = videoModal.querySelector('.modal-media.youtube-embed');
+            const videoPlayer = videoModal.querySelector('.modal-media');
             const imagePlayer = imageModal.querySelector('.modal-media');
+            const openModal = (type, src) => { document.body.classList.add('modal-open'); if (type === 'video') { videoPlayer.src = src; videoModal.style.display = 'flex'; videoPlayer.play(); } else if (type === 'image') { imagePlayer.src = src; imageModal.style.display = 'flex'; } };
+            const closeModal = (modal) => { document.body.classList.remove('modal-open'); modal.style.display = 'none'; const media = modal.querySelector('.modal-media'); if (media.tagName === 'VIDEO') media.pause(); media.src = ''; };
+            document.querySelectorAll('.modal-close, .modal-overlay').forEach(el => { el.addEventListener('click', (e) => closeModal(e.currentTarget.closest('.modal'))); });
 
-            const openModal = (type, src) => {
-                document.body.classList.add('modal-open');
-                if (type === 'youtube') {
-                    youtubePlayer.src = `https://www.youtube.com/embed/${src}?autoplay=1&rel=0`;
-                    videoModal.style.display = 'flex';
-                } else if (type === 'image') {
-                    imagePlayer.src = src;
-                    imageModal.style.display = 'flex';
-                }
-            };
-
-            const closeModal = (modal) => {
-                document.body.classList.remove('modal-open');
-                modal.style.display = 'none';
-                const media = modal.querySelector('.modal-media');
-                if (media.tagName === 'IFRAME') {
-                    media.src = ''; // Stop YouTube video
-                } else if (media.tagName === 'IMG') {
-                    media.src = '';
-                }
-            };
-
-            document.querySelectorAll('.modal-close, .modal-overlay').forEach(el => {
-                el.addEventListener('click', (e) => closeModal(e.currentTarget.closest('.modal')));
-            });
-
-            function scrollSlider(wrapper, direction, isVertical = false) {
-                const scrollDim = isVertical ? 'offsetHeight' : 'offsetWidth';
-                const scrollProp = isVertical ? 'scrollTop' : 'scrollLeft';
-                // Calculate scroll amount dynamically, fallback if element is hidden
-                let scrollAmount = 0;
-                if (wrapper.firstElementChild) {
-                    scrollAmount = wrapper.firstElementChild[scrollDim] + parseInt(window.getComputedStyle(wrapper).gap || '0px');
-                } else if (wrapper.children.length > 0) {
-                     scrollAmount = wrapper.children[0][scrollDim] + parseInt(window.getComputedStyle(wrapper).gap || '0px');
-                }
-
-                wrapper.scrollTo({
-                    [isVertical ? 'top' : 'left']: wrapper[scrollProp] + direction * scrollAmount,
-                    behavior: 'smooth'
-                });
-            }
+            function scrollSlider(wrapper, direction, isVertical = false) { const scrollDim = isVertical ? 'offsetHeight' : 'offsetWidth'; const scrollProp = isVertical ? 'scrollTop' : 'scrollLeft'; const scrollAmount = wrapper.firstElementChild[scrollDim] + parseInt(window.getComputedStyle(wrapper).gap); wrapper.scrollTo({ [isVertical ? 'top' : 'left']: wrapper[scrollProp] + direction * scrollAmount, behavior: 'smooth' }); }
 
             // --- 3D Model Section ---
-            const mainVideoIframe = document.getElementById('portfolio-video-iframe');
+            const mainVideoPlayer = document.getElementById('portfolio-video');
             const modelThumbnails = document.querySelectorAll('#model-thumb-wrapper .thumbnail');
             const modelPrevBtn = document.getElementById('model-prev-btn');
             const modelNextBtn = document.getElementById('model-next-btn');
             const modelThumbnailWrapper = document.getElementById('model-thumb-wrapper');
-
-            function setModelActive(index) {
-                if (index < 0 || index >= modelThumbnails.length) return;
-                const selectedThumb = modelThumbnails[index];
-                const youtubeId = selectedThumb.dataset.youtubeId;
-
-                // Stop current video if playing, then load new one
-                mainVideoIframe.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&rel=0`;
-
-                modelThumbnails.forEach((thumb, i) => thumb.classList.toggle('active-thumb', i === index));
-            }
-
-            modelThumbnails.forEach((thumb, index) => {
-                thumb.addEventListener('mouseover', () => setModelActive(index));
-                thumb.addEventListener('click', () => setModelActive(index));
-            });
+            function setModelActive(index) { if (index < 0 || index >= modelThumbnails.length) return; const selectedThumb = modelThumbnails[index]; const videoSrc = selectedThumb.dataset.videoSrc; if (!mainVideoPlayer.src.endsWith(videoSrc)) { mainVideoPlayer.src = videoSrc; mainVideoPlayer.play(); } modelThumbnails.forEach((thumb, i) => thumb.classList.toggle('active-thumb', i === index)); }
+            modelThumbnails.forEach((thumb, index) => { thumb.addEventListener('mouseover', () => setModelActive(index)); thumb.addEventListener('click', () => setModelActive(index)); });
             modelPrevBtn.addEventListener('click', () => scrollSlider(modelThumbnailWrapper, -1));
             modelNextBtn.addEventListener('click', () => scrollSlider(modelThumbnailWrapper, 1));
-            setModelActive(0); // Set initial active thumbnail and load video
+            setModelActive(0);
 
             // --- Live2D Section ---
             const l2dMainImage = document.getElementById('l2d-main-image');
@@ -413,56 +325,99 @@
             const l2dPrevBtn = document.getElementById('l2d-prev-btn');
             const l2dNextBtn = document.getElementById('l2d-next-btn');
             const l2dThumbnailWrapper = document.getElementById('l2d-thumb-wrapper');
-
-            function setL2DActive(index) {
-                if (index < 0 || index >= l2dThumbnails.length) return;
-                const selectedThumb = l2dThumbnails[index];
-                l2dMainImage.src = selectedThumb.dataset.imgSrc;
-                const videoSrc = selectedThumb.dataset.videoSrc; // This is still local for L2D based on your data
-
-                if (videoSrc) {
-                    l2dVideoThumb.style.backgroundImage = `url(${selectedThumb.dataset.imgSrc})`;
-                    l2dVideoThumb.dataset.videoSrc = videoSrc;
-                    l2dVideoThumb.style.display = 'block';
-                } else {
-                    l2dVideoThumb.style.display = 'none';
-                }
-                l2dThumbnails.forEach((thumb, i) => thumb.classList.toggle('active-thumb', i === index));
-            }
-
-            l2dThumbnails.forEach((thumb, index) => {
-                thumb.addEventListener('click', () => setL2DActive(index));
-            });
-            l2dVideoThumb.addEventListener('click', (e) => openModal('video', e.currentTarget.dataset.videoSrc)); // This will open a local video if `data-video-src` is a local path
+            function setL2DActive(index) { if (index < 0 || index >= l2dThumbnails.length) return; const selectedThumb = l2dThumbnails[index]; l2dMainImage.src = selectedThumb.dataset.imgSrc; const videoSrc = selectedThumb.dataset.videoSrc; if (videoSrc) { l2dVideoThumb.style.backgroundImage = `url(${selectedThumb.dataset.imgSrc})`; l2dVideoThumb.dataset.videoSrc = videoSrc; l2dVideoThumb.style.display = 'block'; } else { l2dVideoThumb.style.display = 'none'; } l2dThumbnails.forEach((thumb, i) => thumb.classList.toggle('active-thumb', i === index)); }
+            l2dThumbnails.forEach((thumb, index) => { thumb.addEventListener('click', () => setL2DActive(index)); });
+            l2dVideoThumb.addEventListener('click', (e) => openModal('video', e.currentTarget.dataset.videoSrc));
             l2dPrevBtn.addEventListener('click', () => scrollSlider(l2dThumbnailWrapper, -1));
             l2dNextBtn.addEventListener('click', () => scrollSlider(l2dThumbnailWrapper, 1));
             setL2DActive(l2dThumbnails.length - 1);
 
             // --- 3D Chibi Model Section ---
-            const chibiData = [
-                { img: 'chibi1.png', youtubeId: 'ttsk1LFy9q8' },
-                { img: 'chibi2.png', youtubeId: 'UBT1hcwU2nY' },
-                { img: 'chibi3.png', youtubeId: 'Sr6InTdiSY4' },
-                { img: 'chibi4.png', youtubeId: 'lYTuhMD4OYA' }
-            ];
+            const chibiData = [ { img: 'chibi1.png', video: 'https://youtu.be/ttsk1LFy9q8' }, { img: 'chibi2.png', video: 'https://youtu.be/UBT1hcwU2nY' }, { img: 'chibi3.png', video: 'https://youtu.be/Sr6InTdiSY4' }, { img: 'chibi4.png', video: 'https://youtu.be/lYTuhMD4OYA' }];
             let currentChibiIndex = 0;
             const chibiSlider = document.querySelector('.image-stack-slider');
             const chibiPrevBtn = document.getElementById('chibi-prev');
             const chibiNextBtn = document.getElementById('chibi-next');
             const chibiVideoThumb = document.getElementById('chibi-video-thumb');
+            chibiData.forEach(item => { chibiSlider.innerHTML += `<div class="slide"><img src="${item.img}"></div>`; });
+            const chibiSlides = chibiSlider.querySelectorAll('.slide');
+            function showChibi(index) { chibiSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === index)); chibiVideoThumb.style.backgroundImage = `url(${chibiData[index].img})`; chibiVideoThumb.dataset.videoSrc = chibiData[index].video; }
+            chibiPrevBtn.addEventListener('click', () => { currentChibiIndex = (currentChibiIndex > 0) ? currentChibiIndex - 1 : chibiData.length - 1; showChibi(currentChibiIndex); });
+            chibiNextBtn.addEventListener('click', () => { currentChibiIndex = (currentChibiIndex < chibiData.length - 1) ? currentChibiIndex + 1 : 0; showChibi(currentChibiIndex); });
+            chibiVideoThumb.addEventListener('click', (e) => openModal('video', e.currentTarget.dataset.videoSrc));
+            showChibi(0);
+            
+            // --- Character Design Section ---
+            const designMainImage = document.getElementById('design-main-image');
+            const designThumbs = document.querySelectorAll('.design-thumb');
+            const designPrevBtn = document.getElementById('design-prev');
+            const designNextBtn = document.getElementById('design-next');
+            const designThumbWrapper = document.querySelector('.design-thumbnail-wrapper');
+            function setDesignActive(index) { if (index < 0 || index >= designThumbs.length) return; const selectedThumb = designThumbs[index]; designMainImage.src = selectedThumb.src; designThumbs.forEach((thumb, i) => thumb.classList.toggle('active-thumb', i === index)); }
+            designThumbs.forEach((thumb, index) => thumb.addEventListener('click', () => setDesignActive(index)));
+            designPrevBtn.addEventListener('click', () => scrollSlider(designThumbWrapper, -1, true));
+            designNextBtn.addEventListener('click', () => scrollSlider(designThumbWrapper, 1, true));
+            setDesignActive(0);
 
-            chibiData.forEach((item, index) => {
+            // --- 2D Illustration Section ---
+            const illustSlider = document.querySelector('.illustration-slider-container');
+            if (illustSlider) {
+                let currentIllustSlide = 0;
+                const slides = illustSlider.querySelectorAll('.slide');
+                const indicatorsContainer = illustSlider.querySelector('.indicators');
+                const totalSlides = slides.length;
+                for (let i = 0; i < totalSlides; i++) { const indicator = document.createElement('span'); indicator.className = 'indicator'; indicator.onclick = () => goToSlide(i); indicatorsContainer.appendChild(indicator); }
+                const indicators = indicatorsContainer.querySelectorAll('.indicator');
+                function updateIllustSlidePositions() { slides.forEach((slide, index) => { slide.className = 'slide'; if (index === currentIllustSlide) slide.classList.add('active'); else if (index === (currentIllustSlide - 1 + totalSlides) % totalSlides) slide.classList.add('prev'); else if (index === (currentIllustSlide + 1) % totalSlides) slide.classList.add('next'); else slide.classList.add('hidden'); }); indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentIllustSlide)); }
+                function nextSlide() { currentIllustSlide = (currentIllustSlide + 1) % totalSlides; updateIllustSlidePositions(); }
+                function previousSlide() { currentIllustSlide = (currentIllustSlide - 1 + totalSlides) % totalSlides; updateIllustSlidePositions(); }
+                function goToSlide(index) { currentIllustSlide = index; updateIllustSlidePositions(); }
+                slides.forEach(slide => { slide.addEventListener('click', () => { const imgSrc = slide.querySelector('img').src; openModal('image', imgSrc); }); });
+                illustSlider.querySelector('.nav-next').onclick = nextSlide;
+                illustSlider.querySelector('.nav-prev').onclick = previousSlide;
+                updateIllustSlidePositions();
+            }
+
+            // --- 2D - 3D Animation Section ---
+            const animationData = ['https://youtu.be/OTpdX2Cjouo', 'https://youtu.be/fYvtT3U6W4s', 'https://youtu.be/s1wgTDyPjZY'];
+            let currentAnimIndex = 0;
+            const animSlider = document.getElementById('animation-slider');
+            const animPrevBtn = document.getElementById('anim-prev');
+            const animNextBtn = document.getElementById('anim-next');
+            animationData.forEach(videoSrc => {
                 const slide = document.createElement('div');
                 slide.className = 'slide';
-                // Add an overlay to prevent direct interaction with iframe in stack view
-                slide.innerHTML = `<img src="${item.img}" style="display: none;"><iframe src="https://www.youtube.com/embed/${item.youtubeId}?autoplay=0&mute=1&loop=1&playlist=${item.youtubeId}&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="iframe-overlay"></div>`;
-                chibiSlider.appendChild(slide);
-
-                // Add click listener to the slide for opening modal
-                slide.addEventListener('click', () => openModal('youtube', item.youtubeId));
+                const video = document.createElement('video');
+                video.src = videoSrc;
+                video.autoplay = true;
+                video.muted = true;
+                video.loop = true;
+                video.playsInline = true;
+                const playIcon = document.createElement('div');
+                playIcon.className = 'play-icon-overlay';
+                slide.appendChild(video);
+                slide.appendChild(playIcon);
+                slide.addEventListener('click', () => openModal('video', videoSrc));
+                animSlider.appendChild(slide);
             });
-
-            const chibiSlides = chibiSlider.querySelectorAll('.slide');
-
-            function showChibi(index) {
-                chibiSlides.forEach((slide, i) => {
+            const animSlides = animSlider.querySelectorAll('.slide');
+            function showAnimation(index) {
+                animSlides.forEach((slide, i) => {
+                    const video = slide.querySelector('video');
+                    if (i === index) {
+                        slide.classList.add('is-active');
+                        video.play();
+                    } else {
+                        slide.classList.remove('is-active');
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                });
+            }
+            animPrevBtn.addEventListener('click', () => { currentAnimIndex = (currentAnimIndex > 0) ? currentAnimIndex - 1 : animationData.length - 1; showAnimation(currentAnimIndex); });
+            animNextBtn.addEventListener('click', () => { currentAnimIndex = (currentAnimIndex < animationData.length - 1) ? currentAnimIndex + 1 : 0; showAnimation(currentAnimIndex); });
+            if(animSlides.length > 0) showAnimation(0);
+        });
+    </script>
+</body>
+</html>
